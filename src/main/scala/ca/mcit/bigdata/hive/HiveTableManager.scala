@@ -2,7 +2,7 @@ package ca.mcit.bigdata.hive
 
 object HiveTableManager extends HiveClient {
 
-  private val hdfsRootDir = "/user/bdsf2001/manik/project4"
+  private val stagingDir = "/user/bdsf2001/manik/project4"
 
   def createNewTables(): Unit = {
 
@@ -20,7 +20,7 @@ object HiveTableManager extends HiveClient {
          | )
          | ROW FORMAT DELIMITED
          | FIELDS TERMINATED BY ','
-         | LOCATION '$hdfsRootDir/routes'
+         | LOCATION '$stagingDir/routes'
          | TBLPROPERTIES (
          | 'skip.header.line.count' = '1' ,
          | 'serialization.null.format' = ''
@@ -39,7 +39,7 @@ object HiveTableManager extends HiveClient {
          | )
          | ROW FORMAT DELIMITED
          | FIELDS TERMINATED BY ','
-         | LOCATION '$hdfsRootDir/trips'
+         | LOCATION '$stagingDir/trips'
          | TBLPROPERTIES (
          | 'skip.header.line.count' = '1' ,
          | 'serialization.null.format' = ''
@@ -54,7 +54,7 @@ object HiveTableManager extends HiveClient {
          | )
          | ROW FORMAT DELIMITED
          | FIELDS TERMINATED BY ','
-         | LOCATION '$hdfsRootDir/calendar_dates'
+         | LOCATION '$stagingDir/calendar_dates'
          | TBLPROPERTIES (
          | 'skip.header.line.count' = '1' ,
          | 'serialization.null.format' = ''
